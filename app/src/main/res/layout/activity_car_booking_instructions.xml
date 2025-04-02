@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Tiêu đề lớn -->
+        <TextView
+            android:id="@+id/tv_guide_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hướng dẫn đặt xe"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:gravity="center"
+            android:paddingBottom="12dp" />
+
+
+        <!-- Danh sách yêu cầu -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Đăng ký/ Đăng nhập tài khoản:"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Nhập số điện thoại hoặc email để đăng ký tài khoản.\n• Xác minh tài khoản qua mã OTP gửi về điện thoại/email.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Tìm kiếm xe:"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Nhập địa điểm nhận xe, ngày giờ thuê và trả xe.\n• Lọc kết quả theo loại xe, giá thuê, hoặc khoảng cách.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Lựa chọn xe mong muốn và gửi yêu cầu thuê xe:
+"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Xem thông tin chi tiết về xe: hình ảnh, giá thuê, chính sách của chủ xe.\n• Gửi yêu cầu thuê xe và đợi chủ xe phản hồi.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Thanh toán:"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Lựa chọn phương thức thanh toán phù hợp.\n• Thanh toán đầy đủ số tiền để xác nhận đặt xe.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+    </LinearLayout>
+
+</ScrollView>

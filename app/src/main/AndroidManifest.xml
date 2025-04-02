@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+    <!-- Quyền sử dụng Internet và kiểm tra trạng thái mạng -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission
+        android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove" /> <!-- Facebook SDK -->
+    <meta-data
+        android:name="com.facebook.sdk.ApplicationId"
+        android:value="@string/facebook_app_id" />
+    <meta-data
+        android:name="com.facebook.sdk.ClientToken"
+        android:value="@string/facebook_client_token" />
+    <meta-data
+        android:name="com.google.android.gms.auth.api.signin"
+        android:value="@string/default_web_client_id" />
+
+    <queries>
+        <package android:name="com.facebook.katana" />
+    </queries>
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ResearchProject"
+        tools:targetApi="31" >
+
+        <!--Facebook-->
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".History.OrderHistoryDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".History.OrderHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.EditAd"
+            android:exported="false" />
+        <activity
+            android:name=".admin.EditPost"
+            android:exported="false" />
+        <activity
+            android:name=".admin.ManageAdsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.ManagePostsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.ManageUsersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AdminDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Payment.Order.OrderSuccessfulActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Payment.Order.OrderInformationActivity"
+            android:exported="true"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="app"
+                    android:scheme="demozpdk" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Post.PostAdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Post.PostDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Post.PostActivity"
+            android:exported="true"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="app"
+                    android:scheme="demozpdk" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".iam.SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".iam.SocialRegisterActivity"
+            android:exported="false"
+            android:label="" />
+        <activity
+            android:name=".iam.EmailRegisterActivity"
+            android:exported="false"
+            android:label="" />
+        <activity
+            android:name=".iam.VerifyPhoneActivity"
+            android:exported="false"
+            android:label="" />
+        <activity android:name=".iam.EditProfileActivity" />
+        <activity
+            android:name=".iam.ForgotPassActivity"
+            android:exported="false"
+            android:label="" />
+        <activity
+            android:name=".iam.LoginActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <activity android:name=".Support.SupportActivity" />
+
+        <activity android:name=".guide.UserGuideActivity" />
+        <activity android:name=".guide.PaymentInstructionsActivity" />
+        <activity android:name=".guide.GeneralInstructionsActivity" />
+        <activity android:name=".guide.OperatingRegulationsActivity" />
+        <activity android:name=".guide.CarBookingInstructionsActivity" />
+
+        <activity android:name=".mekoaipro.MekoAIPro" />
+        <activity android:name=".Notification.NotificationActivity" />
+        <activity android:name=".iam.ChangePasswordActivity" />
+
+    </application>
+
+</manifest>

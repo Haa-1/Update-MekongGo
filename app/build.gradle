@@ -1,0 +1,125 @@
+plugins {
+    id("com.android.application")
+    id("com.google.gms.google-services")
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+}
+
+android {
+    namespace = "com.example.researchproject"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.example.researchproject"
+        minSdk = 29
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        viewBinding {
+            enabled = true
+        }
+        dataBinding {
+            enabled = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        compose = false
+        viewBinding true // Nếu không dùng Jetpack Compose, tắt nó đi
+    }
+}
+
+dependencies {
+    // AndroidX Core Libraries
+    implementation("androidx.core:core:1.12.0")
+    implementation("androidx.lifecycle:lifecycle-runtime:2.6.2")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.10.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    // Facebook SDK
+    implementation 'com.facebook.android:facebook-login:latest.release'
+    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+
+    implementation 'com.squareup.picasso:picasso:2.8'
+    implementation 'com.google.firebase:firebase-storage:20.2.1'
+
+    // Google Identity Services for sign-in
+    implementation "androidx.credentials:credentials-play-services-auth:1.3.0"
+    implementation "androidx.credentials:credentials:1.3.0"
+    implementation "com.google.android.libraries.identity.googleid:googleid:1.1.1"
+
+    // Firebase (BOM để tự động lấy phiên bản mới nhất)
+    implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-database")
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
+
+
+    // API & JSON
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3' // Giữ 1 lần duy nhất
+    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'org.json:json:20210307'
+    
+    // Image Libraries
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    implementation libs.language.id.common
+    implementation libs.androidx.lifecycle.runtime.ktx
+    implementation libs.androidx.activity.compose
+    implementation platform(libs.androidx.compose.bom)
+    implementation libs.androidx.ui
+    implementation libs.androidx.ui.graphics
+    implementation libs.androidx.ui.tooling.preview
+    implementation libs.androidx.material3
+    androidTestImplementation platform(libs.androidx.compose.bom)
+    androidTestImplementation libs.androidx.ui.test.junit4
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
+
+
+
+    // GIF Library
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
+
+    // Markdown (Markwon)
+    implementation 'io.noties.markwon:core:4.6.2'
+    implementation 'io.noties.markwon:image:4.6.2'
+    implementation 'io.noties.markwon:image-glide:4.6.2'
+    implementation 'io.noties.markwon:linkify:4.6.2'
+
+    // Navigation Components
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.0'
+
+    // Unit Test
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // ZaloPay SDK (Tối ưu khai báo fileTree)
+    implementation fileTree(dir: 'D:\\RESEARCH_PROJECT\\zalopay-test', include: ['*.aar', '*.jar'])
+    debugImplementation libs.androidx.ui.tooling
+    debugImplementation libs.androidx.ui.test.manifest
+
+    implementation 'com.google.firebase:firebase-ml-natural-language:22.0.0'
+    implementation 'com.google.firebase:firebase-ml-natural-language-language-id-model:20.0.8'
+    implementation 'com.google.mlkit:language-id:17.0.4'
+}
+apply plugin: 'com.google.gms.google-services'  // Đặt ở cuối file

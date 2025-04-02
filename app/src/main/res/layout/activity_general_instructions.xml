@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Tiêu đề lớn -->
+        <TextView
+            android:id="@+id/tv_guide_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hướng dẫn chung"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:gravity="center"
+            android:paddingBottom="12dp" />
+
+        <!-- Nội dung chính -->
+        <TextView
+            android:id="@+id/tv_guide_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ứng dụng MekongGo giúp kết nối chủ xe và khách thuê xe một cách nhanh chóng, tiện lợi và an toàn. Dưới đây là hướng dẫn chi tiết về quy trình sử dụng ứng dụng dành cho cả chủ xe và khách thuê."
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp" />
+
+        <!-- Danh sách yêu cầu -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quy trình cho thuê xe và thuê xe"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Đối với chủ xe:"
+            android:textSize="14sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 1. Đăng ký thành viên:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Đăng ký tài khoản bằng số điện thoại hoặc email, Google.\n• Xác minh danh tính bằng cách cung cấp thông tin cá nhân và giấy tờ cần thiết."
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 2. Đăng ký xe cho thuê:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Cung cấp thông tin chi tiết về xe: thương hiệu, đời xe, biển số, màu sắc, số chỗ ngồi, hình ảnh thực tế, v.v.\n • Thiết lập giá thuê theo ngày/giờ.\n
+• Đặt lịch xe sẵn sàng cho thuê.
+"           android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 3. Chờ Admin duyệt:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Hệ thống kiểm tra thông tin và xác minh xe.\n• Xe sẽ được hiển thị trên ứng dụng sau khi được duyệt.
+"           android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 4. Nhận và phản hồi yêu cầu thuê xe:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/courier_prime_regular"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"
+            android:text="• Khi có khách đặt xe, chủ xe sẽ nhận được thông báo.\n• Xem xét yêu cầu thuê và quyết định chấp nhận hoặc từ chối.
+
+"
+            android:textColor="#333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 5. Bàn giao xe:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Hẹn gặp khách thuê tại địa điểm giao xe.\n• Kiểm tra giấy tờ của khách thuê.\n• Chụp ảnh xe trước khi bàn giao để đảm bảo tình trạng xe.
+
+"           android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 6. Kết thúc chuyến:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Nhận lại xe từ khách thuê, kiểm tra tình trạng xe.\n• Xác nhận hoàn tất chuyến đi trên ứng dụng.\n• Đánh giá khách thuê để nâng cao chất lượng dịch vụ.
+
+"           android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="18dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Đối với khách thuê:"
+            android:textSize="14sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 1. Đăng ký thành viên:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Tạo tài khoản trên ứng dụng MekongGo.\n• Xác minh danh tính bằng cách cung cấp thông tin cá nhân và giấy phép lái xe
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 2. Tìm xe:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Sử dụng công cụ tìm kiếm để lọc xe theo địa điểm, loại xe, giá thuê, và thời gian mong muốn.
+"           android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 3. Đặt xe:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Chọn xe phù hợp và gửi yêu cầu thuê.\n• Đợi chủ xe xác nhận.
+
+"           android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 4. Thanh toán:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/courier_prime_regular"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"
+            android:text="• Chọn phương thức thanh toán (thẻ tín dụng, ZaloPay, chuyển khoản, v.v.).\n• Hoàn tất thanh toán để xác nhận đặt xe.
+
+"
+            android:textColor="#333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 5. Nhận xe:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Đến địa điểm nhận xe đúng giờ.\n• Kiểm tra tình trạng xe trước khi nhận.\n• Ký hợp đồng thuê xe (nếu có yêu cầu từ chủ xe).
+
+"           android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 6. Trả xe:"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textColor="#333"
+            android:lineSpacingExtra="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Đưa xe về địa điểm đã thỏa thuận.\n• Kiểm tra xe cùng chủ xe.\n• Hoàn tất thủ tục trả xe trên ứng dụng.
+
+"           android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+    </LinearLayout>
+
+</ScrollView>

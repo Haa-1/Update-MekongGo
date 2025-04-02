@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "729818488215",
+    "firebase_url": "https://research-project-d4a0b-default-rtdb.firebaseio.com",
+    "project_id": "research-project-d4a0b",
+    "storage_bucket": "research-project-d4a0b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729818488215:android:c39d65f1cf4d8a55e4b8d2",
+        "android_client_info": {
+          "package_name": "com.example.researchproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729818488215-93e7f1r0sjakh024v6e8a844vdgjsalf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.researchproject",
+            "certificate_hash": "d3ad09ef45e28d9ac2a0be20b7bfda37a8cf53cf"
+          }
+        },
+        {
+          "client_id": "729818488215-ltimiesdlom9m8g24la496616q6vm7bd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxK71V43U-uo8Ja_A_MwNw1o5g5Z0JNZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729818488215-ltimiesdlom9m8g24la496616q6vm7bd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

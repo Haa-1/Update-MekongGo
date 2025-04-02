@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="416dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:background="#9ABCE1"
+        android:gravity="center"
+        android:text="Chi Tiet Don Hang"
+        android:textColor="#193824"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="96dp">
+
+        <LinearLayout
+            android:layout_width="391dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nguoi nhan:" />
+
+            <TextView
+                android:id="@+id/txtCustomerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nguyen Van A" />
+
+            <TextView
+                android:id="@+id/txtCustomerAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dia chi:" />
+
+            <TextView
+                android:id="@+id/txtCustomerPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:padding="50dp">
+
+        <LinearLayout
+            android:layout_width="391dp"
+            android:layout_height="68dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thong tin san pham:" />
+
+
+            <TextView
+                android:id="@+id/txtAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dia chi:" />
+
+            <TextView
+                android:id="@+id/txtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="77dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/search_icon" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3.2"
+                android:orientation="vertical"
+                android:background="@drawable/edit_text_border"
+                android:paddingStart="10dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tên dịch vụ"
+                    android:textColor="#1569AB"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giá: 0 VND"
+                    android:textSize="14sp"
+                    android:textColor="#FF5722" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="391dp"
+        android:layout_height="131dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="151dp"
+                android:layout_height="match_parent"
+                android:text="So luong" />
+
+            <TextView
+                android:id="@+id/txtQuantity"
+                android:layout_width="122dp"
+                android:layout_height="match_parent"
+                android:text="So luong"
+                android:layout_gravity="right"
+                android:gravity="right"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="151dp"
+                android:layout_height="match_parent"
+                android:text="Tong tien: " />
+
+            <TextView
+                android:id="@+id/txtTotal"
+                android:layout_width="122dp"
+                android:layout_height="match_parent"
+                android:text="So luong"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

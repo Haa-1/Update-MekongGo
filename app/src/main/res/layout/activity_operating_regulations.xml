@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Tiêu đề lớn -->
+        <TextView
+            android:id="@+id/tv_guide_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quy chế hoạt động"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:gravity="center"
+            android:paddingBottom="12dp" />
+
+
+        <!-- Danh sách yêu cầu -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Nguyên tắc chung"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MekongGo là nền tảng trung gian giúp kết nối chủ xe và khách thuê xe một cách thuận tiện, an toàn và minh bạch. Tất cả các giao dịch thực hiện trên nền tảng phải tuân thủ pháp luật hiện hành và các quy định do MekongGo ban hành.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Quy định chung"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Người dùng khi đăng ký tài khoản trên MekongGo cần cung cấp thông tin cá nhân chính xác và trung thực. Chủ xe phải đảm bảo rằng phương tiện đăng ký cho thuê có đầy đủ giấy tờ hợp lệ, không thuộc diện tranh chấp pháp lý và đáp ứng các tiêu chuẩn an toàn theo quy định.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Quy trình giao dịch"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/courier_prime_regular"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"
+            android:text="Mọi giao dịch thuê xe trên nền tảng MekongGo được thực hiện theo trình tự sau:
+\n  - Khách thuê tìm kiếm xe phù hợp và gửi yêu cầu thuê xe.
+\n  - Chủ xe xác nhận yêu cầu, thỏa thuận điều kiện thuê xe.
+Khách thuê thực hiện thanh toán qua hệ thống.
+\n  - Hai bên tiến hành giao nhận xe theo thời gian và địa điểm đã thống nhất.
+\nKhi kết thúc chuyến đi, khách thuê trả xe đúng trạng thái ban đầu và hoàn tất quá trình thuê xe trên ứng dụng. Mọi giao dịch được ghi nhận trên hệ thống nhằm đảm bảo tính minh bạch và hỗ trợ giải quyết tranh chấp nếu có.
+"
+            android:textColor="#333"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Đảm bảo an toàn giao dịch"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MekongGo áp dụng các biện pháp bảo mật tiên tiến để bảo vệ thông tin người dùng cũng như đảm bảo an toàn cho các giao dịch tài chính. Mọi giao dịch thanh toán được thực hiện thông qua các cổng thanh toán đáng tin cậy nhằm hạn chế rủi ro gian lận.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Đảm bảo thông tin cá nhân khách thuê xe"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thông tin cá nhân của khách thuê xe được bảo vệ tuyệt đối và chỉ được sử dụng cho mục đích giao dịch trên nền tảng MekongGo. Chúng tôi cam kết không chia sẻ thông tin người dùng với bên thứ ba khi chưa có sự đồng ý từ khách hàng.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="6. Quản lý thông tin xấu"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MekongGo có quyền kiểm tra, xóa bỏ hoặc xử lý các tài khoản có hành vi vi phạm chính sách của nền tảng. Các nội dung sai lệch, gây ảnh hưởng đến cộng đồng hoặc vi phạm pháp luật sẽ bị xử lý nghiêm khắc.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="7. Trách nhiệm trong trường hợp phát sinh lỗi kỹ thuật"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trong trường hợp phát sinh lỗi hệ thống hoặc sự cố kỹ thuật làm ảnh hưởng đến quá trình giao dịch, MekongGo sẽ nỗ lực khắc phục sự cố trong thời gian sớm nhất. Người dùng có thể liên hệ với bộ phận hỗ trợ để được giải quyết kịp thời.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8. Quyền và nghĩa vụ của Ban quản lý Sàn giao dịch
+"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ban quản lý Sàn giao dịch MekongGo có trách nhiệm duy trì hoạt động ổn định của nền tảng, kiểm duyệt nội dung, hỗ trợ khách hàng và xử lý tranh chấp giữa các bên liên quan nhằm đảm bảo môi trường giao dịch minh bạch và an toàn."
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="9. Quyền và trách nhiệm của chủ xe tham gia Sàn giao dịch
+"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chủ xe có trách nhiệm cung cấp thông tin xe chính xác, minh bạch và đảm bảo xe ở trạng thái tốt khi bàn giao cho khách thuê. Trong trường hợp phát sinh vấn đề trong quá trình thuê, chủ xe cần phối hợp với khách thuê để giải quyết kịp thời.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10. Điều khoản áp dụng
+"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tất cả các quy định trên có hiệu lực ngay khi người dùng đăng ký tài khoản trên nền tảng MekongGo. Người dùng đồng ý tuân thủ các chính sách và điều khoản được MekongGo cập nhật theo thời gian.
+"
+            android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="11. Điều khoản cam kết
+"
+            android:textSize="16sp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Người dùng cam kết sử dụng dịch vụ một cách trung thực, không có hành vi gian lận, phá hoại hoặc vi phạm chính sách của nền tảng MekongGo. Bất kỳ vi phạm nào cũng có thể dẫn đến việc khóa tài khoản và xử lý theo quy định của pháp luật.
+\nNếu có bất kỳ thắc mắc nào, vui lòng liên hệ bộ phận hỗ trợ khách hàng của MekongGo để được giải đáp kịp thời."
+      android:textSize="12sp"
+            android:fontFamily="@font/courier_prime_regular"
+            android:textColor="#333"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="10dp"/>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

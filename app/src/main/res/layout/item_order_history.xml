@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <!-- 🖼 Ảnh dịch vụ -->
+    <ImageView
+        android:id="@+id/imgService"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:padding="10dp"
+        android:src="@drawable/search_icon" />
+
+    <!-- 📋 Thông tin dịch vụ -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3.2"
+        android:orientation="vertical"
+        android:background="@drawable/edit_text_border"
+        android:paddingStart="10dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên dịch vụ"
+            android:textColor="#1569AB"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giá: 0 VND"
+            android:textSize="14sp"
+            android:textColor="#FF5722" />
+
+        <TextView
+            android:id="@+id/txtRentalPeriod"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="số lượng: 1"/>
+        <TextView
+            android:id="@+id/txtQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="số lượng: 1"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnDetail"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="wrap_content"
+        android:layout_height="88dp"
+        android:layout_gravity="center"
+        android:text="Chi tiet"
+        android:textSize="14sp" />
+</LinearLayout>

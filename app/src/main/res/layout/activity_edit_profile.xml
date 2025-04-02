@@ -1,0 +1,127 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F9FAFC">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Ảnh đại diện với viền bo tròn -->
+        <RelativeLayout
+            android:layout_width="140dp"
+            android:layout_height="140dp">
+
+            <ImageView
+                android:id="@+id/img_profile"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/profile"
+                android:elevation="6dp"/>
+
+            <!-- Nút thay đổi ảnh -->
+            <ImageButton
+                android:id="@+id/btn_upload"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/btn_background"
+                android:src="@drawable/upload_icon"
+                android:elevation="8dp"/>
+        </RelativeLayout>
+
+        <!-- Khung chứa thông tin người dùng -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/profile_card"
+            android:layout_marginTop="16dp"
+            android:elevation="4dp">
+
+            <!-- Họ và tên -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Họ và Tên"
+                android:fontFamily="@font/courier_prime_bold"
+                android:textColor="#333"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+            <EditText
+                android:id="@+id/et_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="14dp"
+                android:fontFamily="@font/courier_prime_bold"
+                android:textSize="16sp"
+                android:background="@drawable/edit_text_rounded"/>
+
+            <!-- Giới tính -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Giới tính"
+                android:textColor="#333"
+                android:fontFamily="@font/courier_prime_bold"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/courier_prime_bold"
+                android:textSize="16sp"
+                android:background="@drawable/edit_text_rounded"
+                android:padding="8dp"/>
+
+            <!-- Ngày sinh -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ngày sinh"
+                android:textColor="#333"
+                android:textSize="16sp"
+                android:fontFamily="@font/courier_prime_bold"
+                android:layout_marginTop="8dp"/>
+
+            <EditText
+                android:id="@+id/et_birthdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="14dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/courier_prime_bold"
+                android:background="@drawable/edit_text_rounded"
+                android:focusable="false"
+                android:clickable="true"/>
+
+
+        </LinearLayout>
+
+        <!-- Nút lưu thay đổi -->
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:elevation="6dp"
+            android:padding="14dp"
+            android:fontFamily="@font/courier_prime_bold"
+            android:text="Lưu thay đổi"
+            android:backgroundTint="#648BB3"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+</ScrollView>

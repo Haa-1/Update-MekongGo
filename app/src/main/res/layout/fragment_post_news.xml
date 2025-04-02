@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".fragment.PostNewsFragment">
+
+    <!-- 🔹 ScrollView chứa tất cả nội dung -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- 📝 Tiêu đề chính -->
+                <TextView
+                    android:id="@+id/txtTitleHeader"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ĐĂNG TIN"
+                    android:textColor="#1569AB"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:gravity="start"/>
+
+                <!-- 📢 Nút Đăng Quảng Cáo -->
+                <Button
+                    android:id="@+id/btnPostAd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đăng Quảng Cáo"
+                    android:backgroundTint="#648BB3"
+                    android:textColor="#FFFFFF"
+                    />
+            </LinearLayout>
+
+
+            <!-- Tiêu đề bài đăng -->
+            <EditText
+                android:id="@+id/edtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tiêu đề"
+                android:inputType="text"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_border"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Thông tin dịch vụ -->
+            <EditText
+                android:id="@+id/edtServiceInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Thông tin dịch vụ"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_border"
+                android:layout_marginBottom="10dp" />
+            <!-- Ảnh xem trước khi chọn -->
+            <ImageView
+                android:id="@+id/imgService"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:background="#CCCCCC"
+                />
+            <!-- Nút chọn hình ảnh -->
+            <Button
+                android:id="@+id/btnUploadImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chọn Hình Ảnh"
+                android:backgroundTint="#648BB3"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Hiển thị URL ảnh sau khi upload -->
+            <TextView
+                android:id="@+id/txtImageUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="URL ảnh sẽ hiển thị ở đây"
+                android:textColor="#666666"
+                android:textSize="14sp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Giá dịch vụ -->
+            <EditText
+                android:id="@+id/edtPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Giá"
+                android:inputType="numberDecimal"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_border"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Thời gian cho thuê -->
+            <EditText
+                android:id="@+id/edtRentalTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Thời gian cho thuê"
+                android:inputType="text"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_border"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Địa chỉ cho thuê -->
+            <EditText
+                android:id="@+id/edtAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Địa chỉ cho thuê"
+                android:inputType="text"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_border"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Thông tin liên hệ -->
+            <EditText
+                android:id="@+id/edtContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Thông tin liên hệ"
+                android:inputType="text"
+                android:padding="12dp"
+                android:background="@drawable/edit_text_border"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Nút Đăng Tin -->
+            <Button
+                android:id="@+id/btnPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đăng Tin"
+                android:backgroundTint="#648BB3"
+                android:textColor="#FFFFFF"
+                android:padding="12dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

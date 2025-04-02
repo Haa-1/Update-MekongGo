@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Trạng thái Ongoing (Màu xanh) -->
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#D4EDDA"/> <!-- Màu nền xanh nhạt -->
+            <corners android:radius="12dp"/>
+            <stroke android:width="1dp" android:color="#28A745"/> <!-- Viền xanh -->
+        </shape>
+    </item>
+
+    <!-- Trạng thái Draft (Màu xanh dương) -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#D6EAF8"/> <!-- Màu nền xanh dương nhạt -->
+            <corners android:radius="12dp"/>
+            <stroke android:width="1dp" android:color="#007BFF"/> <!-- Viền xanh dương -->
+        </shape>
+    </item>
+
+    <!-- Trạng thái Closed (Màu đỏ) -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F8D7DA"/> <!-- Màu nền đỏ nhạt -->
+            <corners android:radius="12dp"/>
+            <stroke android:width="1dp" android:color="#DC3545"/> <!-- Viền đỏ -->
+        </shape>
+    </item>
+
+</selector>
