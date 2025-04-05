@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
@@ -18,27 +19,39 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.researchproject.R;
-import com.example.researchproject.Post.PostDetailActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.Nullable;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class PostNotificationService {
     private Context context;
-    private DatabaseReference postRef;
+    private DatabaseReference postsRef, notificationsRef, usersRef;
     private static final String CHANNEL_ID = "post_channel";
+    private static final String PREFS_NAME = "NotifiedPosts";
+    private static final String KEY_NOTIFIED_POST = "notified_orders";
     private long appStartTime;
+    private SharedPreferences sharedPreferences;
 
     public PostNotificationService(Context context) {
         this.context = context;
-        postRef = FirebaseDatabase.getInstance().getReference("Posts");
+        postsRef = FirebaseDatabase.getInstance().getReference("Posts");
+        notificationsRef = FirebaseDatabase.getInstance().getReference("Notifications");
+        usersRef = FirebaseDatabase.getInstance().getReference("Users");
 
-        // Lưu thời gian ứng dụng khởi động
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         appStartTime = prefs.getLong("appStartTime", 0);
         if (appStartTime == 0) {
@@ -48,32 +61,30 @@ public class PostNotificationService {
         createNotificationChannel();
         listenForNewPosts();
     }
-
     private void listenForNewPosts() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        long appStartTime = prefs.getLong("appStartTime", System.currentTimeMillis());
-
-        postRef.addChildEventListener(new ChildEventListener() {
+        postsRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, String previousChildName) {
-                if (snapshot.exists()) {
-                    Long postTime = snapshot.child("timestamp").getValue(Long.class);
-                    String postId = snapshot.getKey(); // Lấy ID bài đăng
-                    String title = snapshot.child("title").getValue(String.class);
-                    String content = snapshot.child("serviceInfo").getValue(String.class);
-                    String imageUrl = snapshot.child("imageUrl").getValue(String.class); // Lấy ảnh
-
-                    // Kiểm tra xem bài đăng đã được thông báo chưa
-                    if (postId != null && !isPostNotified(postId)) {
-                        showNotification(postId,title,content,imageUrl);
-                        saveNotifiedPost(postId); // Lưu bài đăng đã thông báo
-                    }
-                    // Chỉ gửi thông báo nếu bài đăng mới hơn thời gian ứng dụng khởi chạy
-                    if (postTime != null && postTime > appStartTime) {
-                        showNotification(postId,title,content, imageUrl);
-                    }
+                if (!snapshot.exists()) {
+                    Log.d("DEBUG", "Không có bài viết mới");
+                    return;
                 }
+                Log.d("DEBUG", "Có bài viết mới: " + snapshot.getKey());
+
+                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String postId = snapshot.getKey();
+                String authorId = snapshot.child("uid").getValue(String.class);
+                Long postTime = snapshot.child("timestamp").getValue(Long.class);
+                String title = snapshot.child("title").getValue(String.class);
+
+                if(userId.equals(authorId) && postId != null && authorId != null && postTime != null && postTime > appStartTime && !isOrderNotified(postId)){
+                    notifyAuthor(authorId, title, postId);
+                }else if(!(userId.equals(authorId)) && postId != null && authorId != null && postTime != null && postTime > appStartTime && !isOrderNotified(postId)) {
+                    notifyAllUsers(postId, title);
+                }
+
             }
+
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, String previousChildName) {}
 
@@ -88,48 +99,73 @@ public class PostNotificationService {
         });
     }
 
-    private void showNotification(String postId, String title, String message, String imageUrl) {
-        Intent intent = new Intent(context, PostDetailActivity.class);
-        intent.putExtra("postId", postId);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    private boolean isOrderNotified(String postId) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        Set<String> notifiedOrders = prefs.getStringSet(KEY_NOTIFIED_POST, new HashSet<>());
+        return notifiedOrders.contains(postId);
+    }
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(
-                context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE
-        );
+    private void saveNotifiedOrder(String postId) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        Set<String> notifiedOrders = new HashSet<>(prefs.getStringSet(KEY_NOTIFIED_POST, new HashSet<>()));
 
+        notifiedOrders.add(postId);
+        prefs.edit().putStringSet(KEY_NOTIFIED_POST, notifiedOrders).apply();
+    }
+
+
+    private void notifyAllUsers(String postId, String title) {
+        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot userSnapshot : snapshot.getChildren()) {
+                    String userId = userSnapshot.getKey();
+                    if (userId != null) {
+                        sendNotification(userId, "Bài viết mới", "Có bài viết mới: " + title, postId);
+                    }
+                    saveNotifiedOrder(postId);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+    }
+
+    private void notifyAuthor(String authorId, String title, String postId) {
+        sendNotification(authorId, "Đăng bài thành công", "Bài viết của bạn đã được đăng: " + title, null);
+        saveNotifiedOrder(postId);
+    }
+
+    private void sendNotification(String userId, String title, String message, String postId) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.search_icon)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setAutoCancel(true)
-                .setContentIntent(pendingIntent);
+                .setAutoCancel(true);
 
-        if (imageUrl != null && !imageUrl.isEmpty()) {
-            Glide.with(context)
-                    .asBitmap()
-                    .load(imageUrl)
-                    .into(new CustomTarget<Bitmap>() {
-                        @Override
-                        public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                            NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle()
-                                    .bigPicture(resource)
-                                    .bigLargeIcon((Icon) null); // Ẩn icon lớn khi mở rộng
+        notificationManager.notify((int) System.currentTimeMillis(), builder.build());
 
-                            builder.setStyle(bigPictureStyle)
-                                    .setLargeIcon(resource);
+        saveNotificationToFirebase(userId, "Post", title, message, postId);
+    }
 
-                            notificationManager.notify((int) System.currentTimeMillis(), builder.build());
-                        }
+    private void saveNotificationToFirebase(String userId, String type, String title, String content, String postId) {
+        DatabaseReference userNotificationsRef = notificationsRef.child(userId);
+        String notificationId = userNotificationsRef.push().getKey();
+        if (notificationId == null) return;
 
-                        @Override
-                        public void onLoadCleared(@Nullable Drawable placeholder) {}
-                    });
-        } else {
-            notificationManager.notify((int) System.currentTimeMillis(), builder.build());
+        Map<String, Object> notificationData = new HashMap<>();
+        notificationData.put("type", type);
+        notificationData.put("title", title);
+        notificationData.put("content", content);
+        notificationData.put("timestamp", System.currentTimeMillis());
+        if (postId != null) {
+            notificationData.put("postId", postId);
         }
+
+        userNotificationsRef.child(notificationId).setValue(notificationData);
     }
 
     private void createNotificationChannel() {
@@ -142,14 +178,5 @@ public class PostNotificationService {
             }
         }
     }
-    private void saveNotifiedPost(String postId) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean(postId, true); // Đánh dấu bài đăng đã thông báo
-        editor.apply();
-    }
-    private boolean isPostNotified(String postId) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean(postId, false); // Kiểm tra xem bài đăng đã được thông báo chưa
-    }
 }
+

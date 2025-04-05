@@ -103,6 +103,12 @@
             android:scaleType="centerInside"
             android:src="@drawable/search_icon"
             android:contentDescription="Gửi đánh giá"/>
+        <Button
+            android:id="@+id/btnMic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎤 Nói"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
 </LinearLayout>
 

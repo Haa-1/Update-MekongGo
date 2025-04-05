@@ -1,108 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.HomeFragment">
-
-    <!-- Header -->
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/txtlogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MekongGo"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:background="#9CCFE6"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/txtlogo"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#9CCFE6"
+        >
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:src="@drawable/search_icon"
+            />
+        <!-- 🔍 Thanh Tìm Kiếm -->
+        <AutoCompleteTextView
+            android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#9CCFE6"
-            android:gravity="center"
-            android:text="MekongGo"
-            android:textColor="#1C372E"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <!-- Thanh tìm kiếm -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#9CCFE6"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <ImageView
-                android:id="@+id/search"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:scaleType="centerInside"
-                android:src="@drawable/search_icon" />
-
-            <AutoCompleteTextView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/edit_text"
-                android:hint="Tìm kiếm dịch vụ trên MekongGo..."
-                android:inputType="text"
-                android:padding="12dp" />
-        </LinearLayout>
+            android:hint="Tìm kiếm dịch vụ trên MekongGo..."
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text" />
     </LinearLayout>
-
-    <!-- Nội dung chính -->
+    <!-- 📝 Sử dụng NestedScrollView để cuộn toàn bộ nội dung -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:fillViewport="true">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
-
+            android:orientation="vertical">
             <!-- 🖼️ Image Slider -->
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPagerAds"
                 android:layout_width="match_parent"
-                android:layout_height="190dp" />
-
-            <!-- Dots Indicator -->
+                android:layout_height="190dp"
+                />
+            <!-- Dots Indicator (Optional) -->
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabDots"
                 android:layout_width="wrap_content"
                 android:layout_height="10dp"
-                android:layout_gravity="center_horizontal"
                 app:tabIndicatorColor="#1569AB"
-                app:tabIndicatorFullWidth="false" />
-
-            <!-- Gợi ý hôm nay -->
+                app:tabIndicatorFullWidth="false"
+                android:layout_gravity="center_horizontal"/>
             <TextView
                 android:id="@+id/txtgoiy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:layout_marginBottom="4dp"
                 android:text="Gợi ý hôm nay"
-                android:textColor="#1569AB"
                 android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <!-- 🏗️ GridView -->
+                android:textColor="#1569AB"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="14dp"/>
+            <!-- 🏗️ GridView (Đặt trong NestedScrollView) -->
             <GridView
                 android:id="@+id/gridView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:horizontalSpacing="8dp"
-                android:nestedScrollingEnabled="false"
                 android:numColumns="2"
+                android:verticalSpacing="8dp"
+                android:horizontalSpacing="8dp"
                 android:padding="8dp"
-                android:verticalSpacing="8dp" />
+                android:gravity="center"
+                android:nestedScrollingEnabled="false"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</FrameLayout>
+</LinearLayout>

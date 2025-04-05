@@ -7,15 +7,15 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView13"
         android:layout_width="424dp"
         android:layout_height="42dp"
         android:layout_gravity="center"
         android:layout_marginBottom="15dp"
-        android:background="#9ABCE1"
+        android:background="#9CCFE6"
         android:gravity="center"
         android:text="Chi Tiet Don Hang"
-        android:textColor="#143234"
+        android:textColor="#F6F7F8"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -42,9 +42,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nguyen Van A"
-
                 android:textColor="#1569AB"
-                android:textSize="14sp" />
+
+                android:textSize="14sp"/>
 
             <TextView
                 android:id="@+id/txtCustomerAddress_detail"
@@ -250,9 +250,14 @@
         android:gravity="center_vertical"
         android:layout_marginTop="6dp">
 
+        <ImageView
+            android:id="@+id/btnUploadImageReview"
+            android:layout_width="45dp"
+            android:layout_height="38dp"
+            android:src="@drawable/ic_photo" />
         <EditText
             android:id="@+id/edtReview"
-            android:layout_width="50dp"
+            android:layout_width="308dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
@@ -260,28 +265,23 @@
             android:hint="Nhập đánh giá..."
             android:padding="8dp"
             android:textColor="#1569AB" />
-
         <ImageButton
             android:id="@+id/btnSubmitReview"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:scaleType="centerInside"
             android:src="@drawable/ic_send"
             android:contentDescription="Gửi đánh giá"/>
     </LinearLayout>
-    <TextView
-        android:id="@+id/txtYourReview"
+
+    <ImageView
+        android:id="@+id/img_send_review"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ddd"
-        android:textColor="#1569AB"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:background="#CCCCCC"
         />
-
-
-
-
 
 </LinearLayout>
