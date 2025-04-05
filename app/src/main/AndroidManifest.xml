@@ -68,6 +68,12 @@
             android:name=".admin.EditPost"
             android:exported="false" />
         <activity
+            android:name=".admin.UserProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.ManageOrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.ManageAdsActivity"
             android:exported="false" />
         <activity

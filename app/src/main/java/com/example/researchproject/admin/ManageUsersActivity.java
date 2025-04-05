@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.researchproject.R;
 import com.google.firebase.database.DataSnapshot;
@@ -23,9 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ManageUsersActivity extends AppCompatActivity {
-    private ListView listViewUsers;
-    private ArrayAdapter<String> adapter;
-    private List<String> userList;
+    private RecyclerView recyclerViewUsers;
+    private UserAdapter adapter;
+    private List<User> userList;
     private DatabaseReference userRef;
 
     @Override
@@ -33,13 +35,14 @@ public class ManageUsersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_users);
 
-        listViewUsers = findViewById(R.id.listViewUsers);
-        userRef = FirebaseDatabase.getInstance().getReference("Users");
+        recyclerViewUsers = findViewById(R.id.recyclerViewUsers);
+        recyclerViewUsers.setLayoutManager(new LinearLayoutManager(this));
+
         userList = new ArrayList<>();
+        adapter = new UserAdapter(this, userList);
+        recyclerViewUsers.setAdapter(adapter);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, userList);
-        listViewUsers.setAdapter(adapter);
-
+        userRef = FirebaseDatabase.getInstance().getReference("Users");
         loadUsers();
     }
 
@@ -49,12 +52,16 @@ public class ManageUsersActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userList.clear();
                 for (DataSnapshot userSnapshot : snapshot.getChildren()) {
+                    String uid = userSnapshot.getKey();
                     String email = userSnapshot.child("email").getValue(String.class);
                     String role = userSnapshot.child("role").getValue(String.class);
-                    userList.add(email + " - " + role);
+                    if (email != null && role != null) {
+                        userList.add(new User(uid, email, role));
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(ManageUsersActivity.this, "Lỗi tải dữ liệu!", Toast.LENGTH_SHORT).show();

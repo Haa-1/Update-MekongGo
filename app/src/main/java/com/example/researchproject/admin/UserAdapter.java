@@ -2,6 +2,7 @@ package com.example.researchproject.admin;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             Intent intent = new Intent(context, UserProfileActivity.class);
             intent.putExtra("uid", user.getUid());
             context.startActivity(intent);
+            Log.d("UserProfileActivity", "UID: " + user.getUid());
 
         });
 
@@ -52,6 +54,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             intent.putExtra("uid", user.getUid());
             intent.putExtra("role", user.getRole());
             context.startActivity(intent);
+            Log.d("ManageOrderActivity", "UID: " + user.getUid());
+            Log.d("ManageOrderActivity", "Email: " + user.getEmail());
+            Log.d("ManageOrderActivity", "Role: " + user.getRole());
+
         });
     }
 
