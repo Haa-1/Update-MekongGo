@@ -31,15 +31,12 @@ public class PostDetailActivity extends AppCompatActivity {
     private TextView txtTitle, txtServiceInfo, txtPrice, txtRentalTime, txtAddress, txtContact;
     private ImageView imgService;
     private ImageButton btnAddToCart, btnPay, btnSubmitReview;
-    private RatingBar ratingBar;
-    private EditText edtReview;
-    private TextView txtWelcome;
     private RecyclerView recyclerViewReviews;
     private ReviewAdapter reviewAdapter;
     private List<Review> reviewList;
-    private DatabaseReference reviewsRef, cartRef;
+    private DatabaseReference  cartRef;
     private String postId;
-    private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,15 +46,12 @@ public class PostDetailActivity extends AppCompatActivity {
         txtServiceInfo = findViewById(R.id.txtServiceInfo);
         txtPrice = findViewById(R.id.txtPrice);
         txtRentalTime = findViewById(R.id.txtRentalTime);
-//        txtWelcome = findViewById(R.id.txtWelcome);
         txtAddress = findViewById(R.id.txtAddress);
         txtContact = findViewById(R.id.txtContact);
         imgService = findViewById(R.id.imgService);
         btnAddToCart = findViewById(R.id.btnAddToCart);
         btnPay = findViewById(R.id.btnPay);
-        btnSubmitReview = findViewById(R.id.btnSubmitReview);
-        ratingBar = findViewById(R.id.ratingBar);
-        edtReview = findViewById(R.id.edtReview);
+
         recyclerViewReviews = findViewById(R.id.recyclerViewReviews);
         // 🌟 Setup RecyclerView for Reviews
         reviewList = new ArrayList<>();
@@ -71,7 +65,6 @@ public class PostDetailActivity extends AppCompatActivity {
             finish();
             return;
         }
-        reviewsRef = FirebaseDatabase.getInstance().getReference("Reviews").child(postId);
         cartRef = FirebaseDatabase.getInstance().getReference("Cart");
         // 📌 Get Data from Intent
         String title = getIntent().getStringExtra("title");
@@ -125,7 +118,6 @@ public class PostDetailActivity extends AppCompatActivity {
                 }
             });
         });
-
         // ✅ Payment Button
         btnPay.setOnClickListener(v -> {
             Intent intent = new Intent(PostDetailActivity.this, OrderInformationActivity.class);
@@ -135,51 +127,6 @@ public class PostDetailActivity extends AppCompatActivity {
 //            intent.putExtra("rentalTime", rentalTime);
             startActivity(intent);
         });
-        // ✅ Submit Review
-        btnSubmitReview.setOnClickListener(v -> {
-            String reviewText = edtReview.getText().toString().trim();
-            float rating = ratingBar.getRating();
+    }
 
-            if (TextUtils.isEmpty(reviewText) || rating == 0) {
-                Toast.makeText(this, "Vui lòng nhập đánh giá & chọn số sao!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            // 🔥 Save Review to Firebase
-            String reviewId = reviewsRef.push().getKey();
-            if (reviewId != null) {
-                HashMap<String, Object> reviewMap = new HashMap<>();
-                reviewMap.put("user", "Người dùng ẩn danh");
-                reviewMap.put("rating", rating);
-                reviewMap.put("comment", reviewText);
-                reviewsRef.child(reviewId).setValue(reviewMap)
-                        .addOnSuccessListener(aVoid -> {
-                            Toast.makeText(this, "Đánh giá đã gửi!", Toast.LENGTH_SHORT).show();
-                            edtReview.setText("");
-                            ratingBar.setRating(0);
-                        })
-                        .addOnFailureListener(e ->
-                                Toast.makeText(this, "Lỗi khi gửi đánh giá!", Toast.LENGTH_SHORT).show()
-                        );
-            }
-        });
-        // ✅ Load Reviews
-        loadReviews();
-    }
-    private void loadReviews() {
-        reviewsRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                reviewList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Review review = dataSnapshot.getValue(Review.class);
-                    reviewList.add(review);
-                }
-                reviewAdapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(PostDetailActivity.this, "Lỗi tải đánh giá!", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 }
