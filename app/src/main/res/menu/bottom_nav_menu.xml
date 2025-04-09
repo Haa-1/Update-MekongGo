@@ -12,17 +12,17 @@
         android:icon="@drawable/search_icon"
         android:title="@string/title_message" />
 
-
+    <item
+        android:id="@+id/navigation_news"
+        android:icon="@drawable/post_news"
+        android:title="@string/title_news" />
     <item
         android:id="@+id/navigation_cart"
         android:icon="@drawable/shopping_cart"
         android:title="@string/title_cart" />
 
 
-    <item
-        android:id="@+id/navigation_news"
-        android:icon="@drawable/post_news"
-        android:title="@string/title_news" />
+
 
    <!-- <item
         android:id="@+id/navigation_guide"

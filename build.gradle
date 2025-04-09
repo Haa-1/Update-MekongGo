@@ -4,7 +4,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.8.0'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0'
         classpath 'com.google.gms:google-services:4.3.15' // Nếu dùng Firebase
         classpath 'com.android.tools.build:gradle:7.4.2' // Thêm đúng phiên bản Gradle
         classpath 'com.google.gms:google-services:4.4.2' // Plugin Google Services để tích hợp Firebase
@@ -14,8 +13,7 @@ buildscript {
 
 plugins {
     id 'com.google.gms.google-services' version '4.4.2' apply false
-    alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.kotlin.compose) apply false
+
 }
 
 allprojects {

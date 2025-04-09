@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="#FFFFFF" android:state_checked="true"/> <!-- Màu khi được chọn -->
-    <item android:color="#80FFFFFF"/> <!-- Màu khi không chọn -->
+    <!-- Khi được chọn -->
+    <item android:state_checked="true" android:color="#4474A4">
+        <shape android:shape="oval">
+            <solid android:color="#FFFFFF" /> <!-- Nền trắng -->
+            <stroke
+                android:width="2dp"
+                android:color="#FF5722" /> <!-- Viền màu cam -->
+        </shape>
+    </item>
+
+    <!-- Khi không chọn -->
+    <item android:color="#FFFF">
+        <shape android:shape="oval">
+            <solid android:color="#00000000" /> <!-- Nền trong suốt -->
+            <stroke
+                android:width="0dp"
+                android:color="#00000000" /> <!-- Không viền -->
+        </shape>
+    </item>
 </selector>

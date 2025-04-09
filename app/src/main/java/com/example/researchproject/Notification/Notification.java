@@ -4,6 +4,7 @@ public class Notification {
     private String title;
     private String content;
     private long timestamp;
+    private String type;
 
     public Notification() {}
 
@@ -15,4 +16,5 @@ public class Notification {
     public String getTitle() { return title; }
     public String getContent() { return content; }
     public long getTimestamp() { return timestamp; }
+    public String getType() { return type; }
 }
