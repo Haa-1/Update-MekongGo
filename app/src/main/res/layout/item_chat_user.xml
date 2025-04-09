@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="end"
     android:padding="8dp">
-    <!-- 👤 Avatar -->
-    <ImageView
-        android:id="@+id/imgAvatar"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/user"
-        android:background="@drawable/bg_chat_bubble_ai"
-        android:scaleType="centerCrop" />
+
     <TextView
         android:id="@+id/textMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="12dp"
         android:text="Tin nhắn mẫu 😊🎉"
-        android:textColor="#000000"
-        android:textSize="16sp" />
+        android:fontFamily="@font/courier_prime_regular"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        android:background="@drawable/bg_chat_bubble_ai"
+        android:elevation="2dp"
+        android:maxWidth="280dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp">
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/user"
+            android:scaleType="centerCrop" />
+
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>

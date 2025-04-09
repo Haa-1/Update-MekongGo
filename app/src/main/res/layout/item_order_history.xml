@@ -1,63 +1,87 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="10dp">
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
 
-    <!-- 🖼 Ảnh dịch vụ -->
-    <ImageView
-        android:id="@+id/imgService"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:scaleType="centerCrop"
-        android:padding="10dp"
-        android:src="@drawable/search_icon" />
-
-    <!-- 📋 Thông tin dịch vụ -->
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3.2"
-        android:orientation="vertical"
-        android:background="@drawable/edit_text_border"
-        android:paddingStart="10dp"
-        android:layout_gravity="center">
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tên dịch vụ"
-            android:textColor="#1569AB"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/imgService"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/search_icon"
+            android:layout_marginEnd="16dp"/>
 
-        <TextView
-            android:id="@+id/txtTotalPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Giá: 0 VND"
-            android:textSize="14sp"
-            android:textColor="#FF5722" />
-
-        <TextView
-            android:id="@+id/txtRentalPeriod"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="số lượng: 1"/>
-        <TextView
-            android:id="@+id/txtQuantity"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="số lượng: 1"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên dịch vụ"
+                android:textColor="#1569AB"
+                android:fontFamily="@font/courier_prime_bold"
+                android:textSize="18sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/txtTotalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giá: 0 VND"
+                android:textSize="16sp"
+                android:fontFamily="@font/courier_prime_regular"
+                android:textColor="#189AB4"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/txtRentalPeriod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thời gian thuê: 1 ngày"
+                android:textSize="14sp"
+                android:fontFamily="@font/courier_prime_regular"
+                android:textColor="#616161"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/txtQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số lượng: 1"
+                android:fontFamily="@font/courier_prime_regular"
+                android:textSize="14sp"
+                android:textColor="#616161"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#496E7C"
+                android:layout_marginLeft="150dp"
+                android:fontFamily="@font/courier_prime_bold"
+                android:text="Chi tiết"
+                android:textSize="14sp"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnDetail"
-        style="@android:style/Widget.Holo.Button.Inset"
-        android:layout_width="wrap_content"
-        android:layout_height="88dp"
-        android:layout_gravity="center"
-        android:text="Chi tiet"
-        android:textSize="14sp" />
-</LinearLayout>
+</androidx.cardview.widget.CardView>

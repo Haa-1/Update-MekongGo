@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
     android:background="#FFFFFF">
 
@@ -47,6 +48,23 @@
             android:lineSpacingExtra="2dp"
             android:paddingBottom="10dp"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            app:srcCompat="@drawable/dang_nhap">
+        </ImageView>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            app:srcCompat="@drawable/dang_ky">
+        </ImageView>
+        </LinearLayout>
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,6 +86,23 @@
             android:textColor="#333"
             android:lineSpacingExtra="2dp"
             android:paddingBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/tim_kim">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/tim_kim1">
+            </ImageView>
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -92,6 +127,17 @@
             android:lineSpacingExtra="2dp"
             android:paddingBottom="10dp"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/thong_tin_xe">
+            </ImageView>
+        </LinearLayout>
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,6 +159,16 @@
             android:textColor="#333"
             android:lineSpacingExtra="2dp"
             android:paddingBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/thanh_toan">
+            </ImageView>
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

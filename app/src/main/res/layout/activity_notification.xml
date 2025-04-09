@@ -2,7 +2,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+
+    >
     <!-- ScrollView để chứa nội dung có thể cuộn -->
     <ScrollView
         android:id="@+id/scrollView2"
@@ -18,10 +20,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="Thông báo"
+                android:fontFamily="@font/courier_prime_regular"
                 android:textColor="#F6F7F8"
-                android:background="#9CCFE6"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:background="#4474A4"
                 android:gravity="center"
                 android:layout_marginBottom="5dp" />
 
@@ -31,6 +34,7 @@
                 android:layout_height="37dp"
                 android:backgroundTint="@android:color/white"
                 android:text="Xóa tất cả"
+                android:fontFamily="@font/courier_prime_regular"
                 android:textColor="#0D838E"
                 android:layout_gravity="right"/>
 
@@ -40,6 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:fontFamily="@font/courier_prime_regular"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
     </ScrollView>

@@ -1,19 +1,22 @@
 package com.example.researchproject.iam;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.researchproject.R;
+import com.example.researchproject.fragment.SettingFragment;
 import com.google.android.material.button.MaterialButton;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 
     private EditText etCurrentPassword, etNewPassword, etConfirmPassword;
     private MaterialButton btnSavePassword;
-
+    private ImageView btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +26,14 @@ public class ChangePasswordActivity extends AppCompatActivity {
         etNewPassword = findViewById(R.id.etNewPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
         btnSavePassword = findViewById(R.id.btnSavePassword);
+        btnBack = findViewById(R.id.btnBack);
 
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChangePasswordActivity.this, SettingFragment.class);
+            }
+        });
         btnSavePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

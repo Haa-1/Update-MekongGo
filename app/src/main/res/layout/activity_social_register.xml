@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <ImageView
         android:id="@+id/imageView2"
@@ -15,15 +16,17 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_blur" />
+        app:srcCompat="@drawable/background_blur"
+        />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="408dp"
+        android:layout_width="390dp"
         android:layout_height="674dp"
         android:background="@drawable/edit_text_border"
         android:backgroundTint="#FFFFFF"
         android:orientation="vertical"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.421"
@@ -35,7 +38,7 @@
             android:id="@+id/imgbtn_close"
             android:layout_width="56dp"
             android:layout_height="34dp"
-            android:layout_marginLeft="330dp"
+            android:layout_marginLeft="300dp"
             android:backgroundTint="#FFFFFF"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/close"
@@ -50,8 +53,8 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="50dp"
-            android:fontFamily="@font/crafty_girls_regular"
-            android:text="Register"
+            android:fontFamily="@font/courier_prime_regular"
+            android:text="Đăng ký"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +84,7 @@
                 android:layout_marginLeft="20dp"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/courier_prime_regular"
-                android:hint="Enter phone number"
+                android:hint="Nhập số điện thoại"
                 android:textColor="#000000"
                 android:textSize="15sp" />
         </LinearLayout>
@@ -93,8 +96,8 @@
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:backgroundTint="#648BB3"
-            android:fontFamily="@font/crafty_girls_regular"
-            android:text="Continue"
+            android:fontFamily="@font/courier_prime_regular"
+            android:text="Tiếp tục"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +128,7 @@
                 android:layout_height="50dp"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/courier_prime_regular"
-                android:text="Continue with gmail"
+                android:text="Tiếp tục với gmail"
                 android:textColor="#000000"
                 android:textSize="15sp" />
         </LinearLayout>
@@ -152,7 +155,7 @@
                 android:layout_height="50dp"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/courier_prime_regular"
-                android:text="Continue with Facebook"
+                android:text="Tiếp tục với Facebook"
                 android:textColor="#000000"
                 android:textSize="15sp" />
         </LinearLayout>
@@ -180,7 +183,7 @@
                 android:layout_height="50dp"
                 android:backgroundTint="#FFFFFF"
                 android:fontFamily="@font/courier_prime_regular"
-                android:text="Continue with Google"
+                android:text="Tiếp tục với Google"
                 android:textColor="#000000"
                 android:textSize="15sp" />
         </LinearLayout>
@@ -206,17 +209,17 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/crafty_girls_regular"
-            android:text="Already have an account?"
+            android:fontFamily="@font/courier_prime_regular"
+            android:text="Bạn đã có tài khoản?"
             android:textSize="15sp"
-            android:textStyle="bold" />/>
+             />/>
 
         <TextView
             android:id="@+id/tv_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/crafty_girls_regular"
-            android:text=" Log in"
+            android:fontFamily="@font/courier_prime_regular"
+            android:text=" Đăng nhập"
             android:textColor="#C75E00"
             android:textSize="15sp"
             android:textStyle="bold"  />

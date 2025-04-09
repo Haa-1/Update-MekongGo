@@ -47,7 +47,7 @@ import java.util.concurrent.Executors;
 public class SocialRegisterActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 100;
     private static final String TAG_GOOGLE = "GoogleActivity";
-    private static final String TAG_FACEBOOK = "FacebookLogin";
+   // private static final String TAG_FACEBOOK = "FacebookLogin";
 
     TextView tv_login;
     EditText editTextMobile;
@@ -79,7 +79,7 @@ public class SocialRegisterActivity extends AppCompatActivity {
 
         // Xử lý sự kiện đăng nhập
         btnGoogle.setOnClickListener(v -> signInWithGoogle());
-        btnFacebook.setOnClickListener(v -> signInWithFacebook());
+       // btnFacebook.setOnClickListener(v -> signInWithFacebook());
 
         tv_login.setOnClickListener(view -> {
             Intent intent = new Intent(SocialRegisterActivity.this, LoginActivity.class);
@@ -108,24 +108,24 @@ public class SocialRegisterActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Log.d(TAG_FACEBOOK, "facebook:onSuccess:" + loginResult);
-                handleFacebookAccessToken(loginResult.getAccessToken());
-            }
-
-            @Override
-            public void onCancel() {
-                Log.d(TAG_FACEBOOK, "facebook:onCancel");
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Log.d(TAG_FACEBOOK, "facebook:onError", error);
-            }
-        });
-    }
+//        LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                Log.d(TAG_FACEBOOK, "facebook:onSuccess:" + loginResult);
+//                handleFacebookAccessToken(loginResult.getAccessToken());
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//                Log.d(TAG_FACEBOOK, "facebook:onCancel");
+//            }
+//
+//            @Override
+//            public void onError(FacebookException error) {
+//                Log.d(TAG_FACEBOOK, "facebook:onError", error);
+//            }
+//        });
+   }
 
     public void onStart() {
         super.onStart();
@@ -227,7 +227,7 @@ public class SocialRegisterActivity extends AppCompatActivity {
 
 
     // Đăng nhập bằng Facebook
-    private void signInWithFacebook() {
+    /*private void signInWithFacebook() {
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "public_profile"));
         LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -246,7 +246,7 @@ public class SocialRegisterActivity extends AppCompatActivity {
                 Log.d(TAG_FACEBOOK, "facebook:onError", error);
             }
         });
-    }
+    }*/
 
 
     // Xử lý kết quả đăng nhập
@@ -257,7 +257,7 @@ public class SocialRegisterActivity extends AppCompatActivity {
     }
 
     // [START auth_with_facebook]
-    private void handleFacebookAccessToken(AccessToken token) {
+   /* private void handleFacebookAccessToken(AccessToken token) {
         Log.d(TAG_FACEBOOK, "handleFacebookAccessToken:" + token);
 
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
@@ -277,6 +277,6 @@ public class SocialRegisterActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+    }*/
     // [END auth_with_facebook]
 }

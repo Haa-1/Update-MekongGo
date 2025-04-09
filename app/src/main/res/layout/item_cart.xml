@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:text="Tên dịch vụ"
             android:textColor="#1569AB"
+            android:fontFamily="@font/courier_prime_regular"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -36,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Giá: 0 VND"
+            android:fontFamily="@font/courier_prime_regular"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="#03520F"
@@ -61,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Xóa"
+            android:fontFamily="@font/courier_prime_regular"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="#FF2222"
@@ -89,6 +92,7 @@
             android:layout_height="wrap_content"
             android:text="Thanh toán"
             android:textStyle="bold"
+            android:fontFamily="@font/courier_prime_regular"
             android:textColor="#118015"
             android:textSize="14sp"
             android:gravity="center" />

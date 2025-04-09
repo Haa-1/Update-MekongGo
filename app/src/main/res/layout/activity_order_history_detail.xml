@@ -4,19 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="10dp">
+  >
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="424dp"
-        android:layout_height="42dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="15dp"
-        android:background="#9CCFE6"
+        android:background="#4474A4"
         android:gravity="center"
-        android:text="Chi Tiet Don Hang"
+        android:padding="16dp"
+        android:text="Chi tiết đơn hàng "
+        android:fontFamily="@font/courier_prime_regular"
         android:textColor="#F6F7F8"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
@@ -34,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:text="Thông tin khách hàng:"
                 android:textColor="#1569AB"
+                android:fontFamily="@font/courier_prime_regular"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
 
@@ -42,6 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nguyen Van A"
+                android:fontFamily="@font/courier_prime_regular"
                 android:textColor="#1569AB"
 
                 android:textSize="14sp"/>
@@ -50,6 +54,7 @@
                 android:id="@+id/txtCustomerAddress_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/courier_prime_regular"
                 android:text="Dia chi:"
                 android:textColor="#1569AB"
                 android:textSize="14sp"/>
@@ -59,6 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phone"
+                android:fontFamily="@font/courier_prime_regular"
                 android:textColor="#1569AB"
                 android:textSize="14sp"/>
         </LinearLayout>
@@ -79,6 +85,7 @@
                 android:layout_height="wrap_content"
                 android:text="Thong tin san pham:"
                 android:textColor="#1569AB"
+                android:fontFamily="@font/courier_prime_regular"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
 
@@ -89,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:text="Dia chi:"
                 android:textColor="#1569AB"
+                android:fontFamily="@font/courier_prime_regular"
                 android:textSize="14sp"/>
 
             <TextView
@@ -96,6 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phone"
+                android:fontFamily="@font/courier_prime_regular"
                 android:textColor="#1569AB"
                 android:textSize="14sp"          />
         </LinearLayout>
@@ -132,6 +141,7 @@
                     android:layout_height="wrap_content"
                     android:text="Tên dịch vụ"
                     android:textColor="#1569AB"
+                    android:fontFamily="@font/courier_prime_regular"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -140,6 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Giá: 0 VND"
+                    android:fontFamily="@font/courier_prime_regular"
                     android:textColor="#FF5722"
                     android:textSize="14sp" />
 
@@ -159,11 +170,13 @@
             <TextView
                 android:layout_width="151dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/courier_prime_regular"
                 android:text="So luong" />
 
             <TextView
                 android:id="@+id/txtQuantity_detail"
                 android:layout_width="122dp"
+                android:fontFamily="@font/courier_prime_regular"
                 android:layout_height="match_parent"
                 android:text="So luong"
                 android:layout_gravity="right"
@@ -173,17 +186,20 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
+            android:fontFamily="@font/courier_prime_regular"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="151dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/courier_prime_regular"
                 android:text="Thời gian thuê: " />
 
             <TextView
                 android:id="@+id/txtRentalPeriod_detail"
                 android:layout_width="122dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/courier_prime_regular"
                 android:text="So luong"
                 android:layout_gravity="right"
                 android:gravity="right"/>
@@ -192,11 +208,13 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/courier_prime_regular">
 
             <TextView
                 android:layout_width="151dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/courier_prime_regular"
                 android:text="Tổng tiền: " />
 
             <TextView
@@ -204,6 +222,7 @@
                 android:layout_width="122dp"
                 android:layout_height="match_parent"
                 android:text="So luong"
+                android:fontFamily="@font/courier_prime_regular"
                 android:layout_gravity="right"
                 android:gravity="right"/>
 
@@ -213,6 +232,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:fontFamily="@font/courier_prime_regular"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
@@ -221,6 +241,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:text="Đánh giá dịch vụ:"
+                android:fontFamily="@font/courier_prime_regular"
                 android:textColor="#1569AB"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -263,6 +284,7 @@
             android:layout_weight="1"
             android:background="@android:drawable/edit_text"
             android:hint="Nhập đánh giá..."
+            android:fontFamily="@font/courier_prime_regular"
             android:padding="8dp"
             android:textColor="#1569AB" />
         <ImageButton

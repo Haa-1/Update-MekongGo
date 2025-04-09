@@ -2,10 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="#ECF5FF">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="553dp"
+        android:layout_height="980dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background_blur" />
 
     <TextView
         android:id="@+id/txtTitle"
@@ -13,23 +22,21 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/courier_prime_bold"
         android:gravity="center"
-        android:text="Trang quản trị MekongGo"
+        android:text="Trang Quản Trị MekongGo"
         android:textColor="@color/blue"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.299" />
+        android:layout_marginTop="32dp"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="6dp"
-        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@id/txtTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -38,62 +45,62 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="24dp">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnManageUsers"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="64dp"
                 android:text="Quản lý Người Dùng"
                 android:fontFamily="@font/courier_prime_bold"
                 app:icon="@drawable/ic_users"
                 app:iconTint="@color/blue"
                 android:textColor="@color/blue"
                 app:iconGravity="textStart"
-                app:iconPadding="8dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+                app:iconPadding="16dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnManagePosts"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="64dp"
                 android:text="Quản lý Bài Đăng"
                 app:icon="@drawable/ic_posts"
                 android:fontFamily="@font/courier_prime_bold"
                 app:iconGravity="textStart"
                 app:iconTint="@color/blue"
                 android:textColor="@color/blue"
-                app:iconPadding="8dp"
+                app:iconPadding="16dp"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="16dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnManageAds"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="64dp"
                 android:text="Quản lý Quảng Cáo"
                 app:icon="@drawable/ic_ads"
                 android:fontFamily="@font/courier_prime_bold"
                 app:iconGravity="textStart"
                 app:iconTint="@color/blue"
                 android:textColor="@color/blue"
-                app:iconPadding="8dp"
+                app:iconPadding="16dp"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="16dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnManageProblem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Quản lý vấn đề"
-                app:icon="@drawable/ic_problem"
-                android:fontFamily="@font/courier_prime_bold"
-                app:iconGravity="textStart"
-                app:iconTint="@color/blue"
-                android:textColor="@color/blue"
-                app:iconPadding="8dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_marginTop="8dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

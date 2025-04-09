@@ -10,7 +10,7 @@
     >
     <ImageButton
         android:id="@+id/imgbtn_close"
-        android:layout_width="56dp"
+        android:layout_width="40dp"
         android:layout_height="48dp"
         android:layout_marginLeft="330dp"
         android:backgroundTint="#FFFFFF"
@@ -49,8 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:backgroundTint="#648BB3"
-            android:fontFamily="@font/crafty_girls_regular"
-            android:text="Login"
+            android:fontFamily="@font/courier_prime_regular"            android:text="Login"
             android:textSize="18sp" />
 
         <Button
@@ -60,8 +59,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#0D2237"
-            android:fontFamily="@font/crafty_girls_regular"
-            android:text="Resend OTP"
+            android:fontFamily="@font/courier_prime_regular"            android:text="Resend OTP"
             android:textSize="18sp" />
 
     </LinearLayout>

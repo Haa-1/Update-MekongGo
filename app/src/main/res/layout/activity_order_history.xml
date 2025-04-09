@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context=".History.OrderHistoryActivity">
 
 
@@ -14,9 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lịch Sử Đặt Hàng"
-        android:textColor="#143234"
-        android:background="#9ABCE1"
-        android:textSize="24sp"
+        android:textColor="#ffff"
+        android:fontFamily="@font/courier_prime_regular"
+        android:background="#4474A4"
+        android:textSize="20sp"
+        android:padding="16dp"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginBottom="15dp"/>

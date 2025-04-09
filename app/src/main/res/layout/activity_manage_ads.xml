@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="#F5F5F5">  <!-- Màu nền nhẹ nhàng -->
 
     <!-- Header -->
@@ -13,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        app:cardCornerRadius="12dp"
         app:cardElevation="8dp"
         android:backgroundTint="#9ABCE1"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,9 +22,10 @@
             android:id="@+id/txtTitleHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#4474A4"
             android:text="Trang quản lý bài quảng cáo"
             android:fontFamily="@font/courier_prime_bold"
-            android:textColor="#1B372A"
+            android:textColor="#ffff"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -39,6 +38,7 @@
         android:layout_width="381dp"
         android:layout_height="247dp"
         android:padding="10dp"
+        android:fontFamily="@font/courier_prime_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

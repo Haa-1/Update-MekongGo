@@ -11,6 +11,7 @@
         android:layout_marginStart="8dp"
         android:layout_gravity="center_vertical"
         android:text="Ad Title"
+        android:fontFamily="@font/courier_prime_regular"
         android:textSize="18sp"
         android:textStyle="bold" />
     <ImageView

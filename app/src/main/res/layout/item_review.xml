@@ -20,5 +20,6 @@
         android:id="@+id/txtComment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/courier_prime_regular"
         android:text="Bình luận của người dùng"/>
 </LinearLayout>

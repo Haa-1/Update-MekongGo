@@ -79,8 +79,8 @@
         android:layout_width="288dp"
         android:layout_height="48dp"
         android:backgroundTint="#648BB3"
-        android:fontFamily="@font/crafty_girls_regular"
-        android:text="Go"
+        android:fontFamily="@font/courier_prime_bold"
+        android:text="Đăng nhập"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,8 +95,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:fontFamily="@font/crafty_girls_regular"
-        android:text="Log in"
+        android:fontFamily="@font/courier_prime_bold"
+        android:text="Đăng nhập"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,16 +111,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:fontFamily="@font/crafty_girls_regular"
-        android:text="Forgot your password?"
+        android:fontFamily="@font/courier_prime_regular"
+        android:text="Quên mật khẩu?"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
+        app:layout_constraintVertical_bias="0.54" />
 
     <LinearLayout
         android:id="@+id/ll_sign_up"
@@ -140,17 +140,16 @@
             android:id="@+id/re_password3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/crafty_girls_regular"
-            android:text="Don’t have account yet?"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/courier_prime_regular"
+            android:text="Bạn chưa có tài khoản?"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/tv_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/crafty_girls_regular"
-            android:text=" Sign up"
+            android:fontFamily="@font/courier_prime_regular"
+            android:text=" Đăng ký"
             android:textColor="#C75E00"
             android:textSize="15sp"
             android:textStyle="bold" />

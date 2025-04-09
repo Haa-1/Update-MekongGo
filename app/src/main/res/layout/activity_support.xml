@@ -9,9 +9,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quick Support Center"
-        android:textSize="24sp"
-        android:fontFamily="@font/crafty_girls_regular"
+        android:text="Trung tâm hỗ trợ nhanh"
+        android:textSize="26sp"
+        android:fontFamily="@font/courier_prime_regular"
         android:textStyle="bold"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="10dp" />
@@ -26,13 +26,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="5dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="For quick support, please call 0000 0000 (7:00 AM - 10:00 PM) or send a message to MekongGo Fanpage"
-            android:textSize="16sp"
+            android:text="Để được hỗ trợ nhanh chóng, vui lòng gọi 0000 0000 (7:00 AM - 10:00 PM) hoặc gửi tin nhắn đến Fanpage MekongGo"            android:textSize="16sp"
             android:fontFamily="@font/courier_prime_regular"
             android:gravity="center"/>
 

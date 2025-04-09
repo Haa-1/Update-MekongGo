@@ -32,6 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="ĐĂNG TIN"
+                    android:fontFamily="@font/courier_prime_regular"
                     android:textColor="#1569AB"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -43,6 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Đăng Quảng Cáo"
+                    android:fontFamily="@font/courier_prime_regular"
                     android:backgroundTint="#648BB3"
                     android:textColor="#FFFFFF"
                     />
@@ -56,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Tiêu đề"
                 android:inputType="text"
+                android:fontFamily="@font/courier_prime_regular"
                 android:padding="12dp"
                 android:background="@drawable/edit_text_border"
                 android:layout_marginBottom="10dp" />
@@ -66,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Thông tin dịch vụ"
+                android:fontFamily="@font/courier_prime_regular"
                 android:inputType="textMultiLine"
                 android:minLines="3"
                 android:padding="12dp"
@@ -86,6 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chọn Hình Ảnh"
+                android:fontFamily="@font/courier_prime_regular"
                 android:backgroundTint="#648BB3"
                 android:textColor="#FFFFFF"
                 android:layout_marginBottom="8dp" />
@@ -98,6 +103,7 @@
                 android:text="URL ảnh sẽ hiển thị ở đây"
                 android:textColor="#666666"
                 android:textSize="14sp"
+                android:fontFamily="@font/courier_prime_regular"
                 android:layout_marginBottom="12dp" />
 
             <!-- Giá dịch vụ -->
@@ -108,6 +114,7 @@
                 android:hint="Giá"
                 android:inputType="numberDecimal"
                 android:padding="12dp"
+                android:fontFamily="@font/courier_prime_regular"
                 android:background="@drawable/edit_text_border"
                 android:layout_marginBottom="10dp" />
 
@@ -119,6 +126,7 @@
                 android:hint="Thời gian cho thuê"
                 android:inputType="text"
                 android:padding="12dp"
+                android:fontFamily="@font/courier_prime_regular"
                 android:background="@drawable/edit_text_border"
                 android:layout_marginBottom="10dp" />
 
@@ -130,6 +138,7 @@
                 android:hint="Địa chỉ cho thuê"
                 android:inputType="text"
                 android:padding="12dp"
+                android:fontFamily="@font/courier_prime_regular"
                 android:background="@drawable/edit_text_border"
                 android:layout_marginBottom="10dp" />
 
@@ -140,6 +149,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Thông tin liên hệ"
                 android:inputType="text"
+                android:fontFamily="@font/courier_prime_regular"
                 android:padding="12dp"
                 android:background="@drawable/edit_text_border"
                 android:layout_marginBottom="12dp" />
@@ -150,6 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đăng Tin"
+                android:fontFamily="@font/courier_prime_regular"
                 android:backgroundTint="#648BB3"
                 android:textColor="#FFFFFF"
                 android:padding="12dp"

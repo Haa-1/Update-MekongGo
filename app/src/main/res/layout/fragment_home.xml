@@ -10,9 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="MekongGo"
+        android:fontFamily="@font/courier_prime_regular"
         android:gravity="center"
-        android:textSize="20sp"
-        android:background="#9CCFE6"
+        android:textSize="30sp"
+        android:background="#4474A4"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         />
@@ -21,7 +22,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="#9CCFE6"
+        android:background="#4474A4"
         >
         <ImageView
             android:id="@+id/search"
@@ -38,6 +39,7 @@
             android:layout_height="wrap_content"
             android:hint="Tìm kiếm dịch vụ trên MekongGo..."
             android:inputType="text"
+            android:fontFamily="@font/courier_prime_regular"
             android:padding="12dp"
             android:background="@android:drawable/edit_text" />
     </LinearLayout>
@@ -71,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:text="Gợi ý hôm nay"
                 android:textSize="14sp"
+                android:fontFamily="@font/courier_prime_regular"
                 android:textColor="#1569AB"
                 android:textStyle="bold"
                 android:layout_marginBottom="4dp"
@@ -83,6 +86,7 @@
                 android:numColumns="2"
                 android:verticalSpacing="8dp"
                 android:horizontalSpacing="8dp"
+                android:fontFamily="@font/courier_prime_regular"
                 android:padding="8dp"
                 android:gravity="center"
                 android:nestedScrollingEnabled="false"/>
