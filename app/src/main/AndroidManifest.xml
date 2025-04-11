@@ -94,7 +94,6 @@
             android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -167,7 +166,6 @@
         <activity android:name=".mekoaipro.MekoAIPro" />
         <activity android:name=".Notification.NotificationActivity" />
         <activity android:name=".iam.ChangePasswordActivity" />
-        />
 
 
     </application>

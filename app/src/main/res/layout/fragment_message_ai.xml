@@ -45,7 +45,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/courier_prime_regular"
                 android:padding="8dp"
                 android:clipToPadding="false"
                 android:nestedScrollingEnabled="false"
@@ -60,21 +59,23 @@
                 android:textSize="16sp"
                 android:visibility="gone"
                 android:layout_marginTop="12dp" />
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewAds"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FAFAFA"
-                android:orientation="vertical"
-                android:padding="16dp">
-                <GridView
-                    android:id="@+id/gridView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:numColumns="2"
-                    android:visibility="gone"
-                    android:nestedScrollingEnabled="false"
-                    android:layout_marginTop="8dp" />
-            </LinearLayout>
+                android:visibility="gone"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="8dp"
+                />
+            <GridView
+                android:id="@+id/gridView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="2"
+                android:visibility="gone"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="8dp" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
