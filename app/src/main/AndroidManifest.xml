@@ -166,6 +166,10 @@
         <activity android:name=".mekoaipro.MekoAIPro" />
         <activity android:name=".Notification.NotificationActivity" />
         <activity android:name=".iam.ChangePasswordActivity" />
+        <activity android:name=".ThanksActivity" />
+
+
+        />
 
 
     </application>
