@@ -1,11 +1,13 @@
 package com.example.researchproject.fragment;
 
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +17,15 @@ import android.widget.GridView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+
 import com.example.researchproject.Ad.Ad;
 import com.example.researchproject.Ad.AdSliderAdapter;
+import com.example.researchproject.MainActivity;
 import com.example.researchproject.Notification.AdNotificationService;
 import com.example.researchproject.Notification.OrderNotificationService;
 import com.example.researchproject.Notification.PostNotificationService;
@@ -28,16 +33,22 @@ import com.example.researchproject.Post.Post;
 import com.example.researchproject.Post.PostAdapterGrid;
 import com.example.researchproject.Post.PostDetailActivity;
 import com.example.researchproject.R;
+
+import com.example.researchproject.mekoaipro.VoiceCommandManager;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
 
+
 import java.util.*;
 
-public class HomeFragment extends Fragment {
-    private static final int NOTIFICATION_PERMISSION_CODE = 1;
 
+public class HomeFragment extends Fragment {
+    private static final int NOTIFICATION_PERMISSION_CODE = 5;
+    // điều khiển thao tác bằng giọng nói
+    private VoiceCommandManager voiceCommandManager;
+    private static final int REQUEST_CODE_AUDIO = 1001;// dùng ghi âm
     private GridView gridView;
     private PostAdapterGrid postAdapter;
     public static List<Post> postList = new ArrayList<>();
@@ -53,15 +64,56 @@ public class HomeFragment extends Fragment {
     private DatabaseReference adsRef;
     private TabLayout tabDots;
 
+
     private Handler slideHandler = new Handler();
+
 
     public HomeFragment() {}
 
+
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+// điều khiển thao tác ứng dụng bằng giongj nói
+        // Lấy VoiceCommandManager từ MainActivity
+        voiceCommandManager = ((MainActivity) requireActivity()).getVoiceCommandManager();
+        // Kiểm tra nếu voiceCommandManager không null, bắt đầu lắng nghe
+        if (voiceCommandManager != null) {
+            voiceCommandManager.startListeningWithSpeechRecognizer();
+        } else {
+            Log.e("HomeFragment", "VoiceCommandManager chưa được khởi tạo!");
+        }
+        VoiceCommandManager voiceCommandManager = new VoiceCommandManager(requireContext(), new VoiceCommandManager.VoiceCommandListener() {
+            @Override
+            public void onNavigateToHome() {
+                Toast.makeText(requireContext(), "Đã ở trang chủ", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNavigateToMessageAI() {
+                // Xử lý điều hướng đến MessageAI
+            }
+            @Override
+            public void onNavigateToCart() {
+                // Xử lý điều hướng đến Giỏ hàng
+            }
+            @Override
+            public void onNavigateToNews() {
+                // Xử lý điều hướng đến Tin tức
+            }
+            @Override
+            public void onNavigateToSettings() {
+                // Xử lý điều hướng đến Cài đặt
+            }
+            @Override
+            public void onUnknownCommand(String command) {
+                Toast.makeText(requireContext(), "Lệnh không xác định: " + command, Toast.LENGTH_SHORT).show();
+            }
+        });
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_CODE_AUDIO);
+        }
+
 
         mAuth = FirebaseAuth.getInstance();
         gridView = view.findViewById(R.id.gridView);
@@ -69,20 +121,25 @@ public class HomeFragment extends Fragment {
         gridView.setAdapter(postAdapter);
         gridView.setNestedScrollingEnabled(true);
 
+
         searchView = view.findViewById(R.id.searchView);
         viewPagerAds = view.findViewById(R.id.viewPagerAds);
         tabDots = view.findViewById(R.id.tabDots);
         adSliderAdapter = new AdSliderAdapter(requireContext(), adList);
         viewPagerAds.setAdapter(adSliderAdapter);
 
+
         adsRef = FirebaseDatabase.getInstance().getReference("Ads");
         databaseReference = FirebaseDatabase.getInstance().getReference("Posts");
+
 
         loadAds();
         autoSlideAds();
         new TabLayoutMediator(tabDots, viewPagerAds, (tab, position) -> {}).attach();
 
+
         loadSearchSuggestions();
+
 
         suggestionAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_dropdown_item_1line, searchSuggestions);
         searchView.setAdapter(suggestionAdapter);
@@ -99,6 +156,7 @@ public class HomeFragment extends Fragment {
             return true;
         });
 
+
         gridView.setOnItemClickListener((parent, v, position, id) -> {
             Post selectedPost = postList.get(position);
             Intent intent = new Intent(requireContext(), PostDetailActivity.class);
@@ -112,14 +170,15 @@ public class HomeFragment extends Fragment {
             intent.putExtra("imageUrl", selectedPost.getImageUrl());
             startActivity(intent);
         });
-
         requestNotificationPermission();
         new PostNotificationService(requireContext());
         new OrderNotificationService(requireContext());
         new AdNotificationService(requireContext());
 
+
         return view;
     }
+
 
     private void requestNotificationPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -129,6 +188,7 @@ public class HomeFragment extends Fragment {
             }
         }
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
@@ -142,12 +202,14 @@ public class HomeFragment extends Fragment {
         }
     }
 
+
     private void loadSearchSuggestions() {
         databaseReference.orderByChild("timestamp").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Set<String> uniqueSuggestions = new HashSet<>();
                 List<Post> tempList = new ArrayList<>();
+
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Post post = dataSnapshot.getValue(Post.class);
@@ -159,12 +221,15 @@ public class HomeFragment extends Fragment {
                     }
                 }
 
+
                 tempList.sort((p1, p2) -> Long.compare(p2.getTimestamp(), p1.getTimestamp()));
+
 
                 postList.clear();
                 postList.addAll(tempList);
                 originalPostList.clear();
                 originalPostList.addAll(tempList);
+
 
                 searchSuggestions.clear();
                 searchSuggestions.addAll(uniqueSuggestions);
@@ -172,12 +237,14 @@ public class HomeFragment extends Fragment {
                 postAdapter.notifyDataSetChanged();
             }
 
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(requireContext(), "Lỗi tải dữ liệu: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
     private void filterPosts(String query) {
         List<Post> filteredList = new ArrayList<>();
@@ -194,6 +261,7 @@ public class HomeFragment extends Fragment {
         }
     }
 
+
     private void loadAds() {
         adsRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -209,12 +277,14 @@ public class HomeFragment extends Fragment {
                 }
             }
 
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(requireContext(), "Lỗi tải quảng cáo!", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
     private void autoSlideAds() {
         slideHandler.postDelayed(new Runnable() {
@@ -228,3 +298,6 @@ public class HomeFragment extends Fragment {
         }, 4000);
     }
 }
+
+
+

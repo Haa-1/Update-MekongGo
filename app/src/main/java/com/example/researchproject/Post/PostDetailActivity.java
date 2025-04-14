@@ -111,7 +111,6 @@ public class PostDetailActivity extends AppCompatActivity {
                                 );
                     }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
                     Toast.makeText(PostDetailActivity.this, "Lỗi khi lấy thông tin người dùng!", Toast.LENGTH_SHORT).show();

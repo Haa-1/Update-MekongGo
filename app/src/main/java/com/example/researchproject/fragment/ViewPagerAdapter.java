@@ -30,8 +30,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new CartFragment();
             case 3:
                 return new PostNewsFragment();
-           /* case 4:
-                return new UserGuideFragment();*/
             case 4:
                 return new SettingFragment();
             default:

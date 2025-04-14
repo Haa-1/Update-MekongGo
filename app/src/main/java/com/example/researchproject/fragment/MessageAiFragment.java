@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.researchproject.Chat.ChatAdapter;
 import com.example.researchproject.Chat.ChatMessage;
+import com.example.researchproject.MainActivity;
 import com.example.researchproject.Post.Post;
 import com.example.researchproject.Post.PostAdapterGrid;
 import com.example.researchproject.Post.PostDetailActivity;
@@ -103,6 +104,23 @@ public class MessageAiFragment extends Fragment {
         gridView.setNestedScrollingEnabled(false);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Posts");
+
+        String input = "Đi du lịch cần thơ rất thú vị, tôi cũng thích sóc trăng và huế.";
+        List<String> suggestions = List.of(
+                "cần thơ", "sóc trăng", "huế", "xe", "du lịch",
+                "an giang", "vũng tàu", "bạc liêu", "bắc giang", "bắc kạn",
+                "bắc ninh", "bến tre", "bình định", "bình dương", "bình phước",
+                "bình thuận", "cà mau", "cao bằng", "đà nẵng", "đắk lắk",
+                "đắk nông", "điện biên", "đồng nai", "đồng tháp", "gia lai",
+                "hà giang", "hà nam", "hà nội", "hà tĩnh", "hải dương",
+                "hải phòng", "hậu giang", "hoà bình", "hưng yên", "khánh hoà",
+                "kiên giang", "kon tum", "lai châu", "lâm đồng", "lạng sơn",
+                "lào cai", "long an", "nam định", "nghệ an", "ninh bình",
+                "ninh thuận", "phú thọ", "phú yên", "quảng bình", "quảng nam",
+                "quảng ngãi", "quảng ninh", "quảng trị", "sơn la", "tây ninh",
+                "thái bình", "thái nguyên", "thanh hoá", "thừa thiên huế", "tiền giang","nghĩ dưỡng","lễ","biển","giá",
+                "trà vinh", "thuê","chạy","thấp","tuyên quang", "vĩnh long", "vĩnh phúc", "yên bái"
+        );
         postAdapter = new PostAdapterGrid(requireContext(), filteredFirebaseData);
         gridView.setAdapter(postAdapter);
 
@@ -218,7 +236,6 @@ public class MessageAiFragment extends Fragment {
             @Override public void onEvent(int i, Bundle bundle) {}
         });
 
-
         speechRecognizer.startListening(intent);
     }
 
@@ -289,7 +306,6 @@ public class MessageAiFragment extends Fragment {
                 } else {
                     geminiResponse = "⚠️ Lỗi Meko AI : " + response.code();
                 }
-
 
                 String finalGeminiResponse = geminiResponse;
                 requireActivity().runOnUiThread(() -> {
@@ -419,5 +435,20 @@ public class MessageAiFragment extends Fragment {
             Toast.makeText(getContext(), "Từ chối quyền ghi âm!", Toast.LENGTH_SHORT).show();
         }
     }
+    @Override
+    public void onResume() {
+        super.onResume();
 
+
+        if (((MainActivity) requireActivity()).getVoiceCommandManager() != null) {
+            ((MainActivity) requireActivity()).getVoiceCommandManager().destroy();
+        }
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (((MainActivity) requireActivity()).getVoiceCommandManager() == null) {
+            ((MainActivity) requireActivity()).setupVoiceCommandManager(); // Khởi động lại VoiceCommandManager
+        }
+    }
 }

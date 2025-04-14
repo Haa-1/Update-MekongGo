@@ -22,6 +22,7 @@ import androidx.core.content.ContextCompat;
 import com.bumptech.glide.Glide;
 
 
+import com.example.researchproject.Payment.Api.CreateOrder;
 import com.example.researchproject.Post.PostAdActivity;
 import com.example.researchproject.R;
 import com.example.researchproject.fragment.HomeFragment;
@@ -112,13 +113,13 @@ public class PostActivity extends AppCompatActivity {
                 openFileChooser();
             }
         });
-//        ZaloPaySDK.init(2553, Environment.SANDBOX);
-//        StrictMode.ThreadPolicy policy = new
-//                StrictMode.ThreadPolicy.Builder().permitAll().build();
-//        StrictMode.setThreadPolicy(policy);
+        ZaloPaySDK.init(2553, Environment.SANDBOX);
+        StrictMode.ThreadPolicy policy = new
+                StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         // Xử lý đăng bài
         btnPost.setOnClickListener(v -> {
-//           processZaloPayPayment();
+
             uploadPost();
         });
     }
@@ -237,7 +238,6 @@ public class PostActivity extends AppCompatActivity {
                         savePostToDatabase(title, serviceInfo, price, rentalTime, address, contact, imageUrl, uid, userEmail);
                         progressDialog.dismiss();
                         Toast.makeText(PostActivity.this, "Đăng tin thành công!", Toast.LENGTH_SHORT).show();
-                        finish();
                     }, (errorMessage) -> {
                         progressDialog.dismiss();
                         Toast.makeText(PostActivity.this, "Lỗi khi tải ảnh: " + errorMessage, Toast.LENGTH_SHORT).show();
@@ -245,9 +245,10 @@ public class PostActivity extends AppCompatActivity {
                 } else {
                     savePostToDatabase(title, serviceInfo, price, rentalTime, address, contact, "", uid, userEmail);
                     progressDialog.dismiss();
+
                     Toast.makeText(PostActivity.this, "Đăng tin thành công!", Toast.LENGTH_SHORT).show();
-                    finish();
                 }
+                processZaloPayPayment();
             }
 
             @Override
@@ -304,50 +305,49 @@ public class PostActivity extends AppCompatActivity {
         void onFailure(String errorMessage);
     }
 
-//    private void processZaloPayPayment() {
-//        Toast.makeText(this, "Đang thực hiện thanh toán qua ZaloPay...", Toast.LENGTH_SHORT).show();
-//        String totalString = "100000";
-//        try {
-//            CreateOrder orderApi = new CreateOrder();
-//            JSONObject data = orderApi.createOrder(totalString);
-//            String code = data.getString("return_code");
-//            Log.d("ZaloPay", "Phản hồi từ API: " + data.toString());
-//            if (code.equals("1")) {
-//                String token = data.getString("zp_trans_token");
-//                Log.d("ZaloPay", "Mã giao dịch: " + token);
-//                int i;
-//                ZaloPaySDK.getInstance().payOrder(PostActivity.this, token, "demozpdk://app", new PayOrderListener() {
-//                    @Override
-//                    public void onPaymentSucceeded(String s, String s1, String s2) {
-//                        Log.d("ZaloPay", "Thanh toán thành công: " + s);
-//                        Toast.makeText(PostActivity.this, "Thanh toán thành công! Đang đăng bài...", Toast.LENGTH_SHORT).show();
-//                        Log.d("PostActivity", "uploadPost() được gọi sau khi thanh toán thành công.");
-//                        int i=1;
-//                    }
-//
-//                    @Override
-//                    public void onPaymentCanceled(String s, String s1) {
-//                        Intent intent1 = new Intent(PostActivity.this, HomeMekong.class);
-//                        intent1.putExtra("result", "Hủy thanh toán");
-//                        startActivity(intent1);
-//                        int i=2;
-//                    }
-//                    @Override
-//                    public void onPaymentError(ZaloPayError zaloPayError, String s, String s1) {
-//                        Intent intent1 = new Intent(PostActivity.this, HomeMekong.class);
-//                        intent1.putExtra("result", "Lỗi thanh toán");
-//                        startActivity(intent1);
-//                    }
-//                });
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            Toast.makeText(this, "Lỗi khi tạo đơn hàng: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-//        }
-//    }
-//    @Override
-//    protected void onNewIntent(Intent intent) {
-//        super.onNewIntent(intent);
-//        ZaloPaySDK.getInstance().onResult(intent);
-//    }
+    private void processZaloPayPayment() {
+        Toast.makeText(this, "Đang thực hiện thanh toán qua ZaloPay...", Toast.LENGTH_SHORT).show();
+        String totalString = "100000";
+        try {
+            CreateOrder orderApi = new CreateOrder();
+            JSONObject data = orderApi.createOrder(totalString);
+            String code = data.getString("return_code");
+            Log.d("ZaloPay", "Phản hồi từ API: " + data.toString());
+            if (code.equals("1")) {
+                String token = data.getString("zp_trans_token");
+                Log.d("ZaloPay", "Mã giao dịch: " + token);
+                ZaloPaySDK.getInstance().payOrder(PostActivity.this, token, "demozpdk://app", new PayOrderListener() {
+                    @Override
+                    public void onPaymentSucceeded(String s, String s1, String s2) {
+                        Log.d("ZaloPay", "Thanh toán thành công: " + s);
+                        Toast.makeText(PostActivity.this, "Thanh toán thành công! Đang đăng bài...", Toast.LENGTH_SHORT).show();
+                        Log.d("PostActivity", "uploadPost() được gọi sau khi thanh toán thành công.");
+
+                    }
+
+                    @Override
+                    public void onPaymentCanceled(String s, String s1) {
+                        Intent intent1 = new Intent(PostActivity.this, HomeFragment.class);
+                        intent1.putExtra("result", "Hủy thanh toán");
+                        startActivity(intent1);
+
+                    }
+                    @Override
+                    public void onPaymentError(ZaloPayError zaloPayError, String s, String s1) {
+                        Intent intent1 = new Intent(PostActivity.this, HomeFragment.class);
+                        intent1.putExtra("result", "Lỗi thanh toán");
+                        startActivity(intent1);
+                    }
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Lỗi khi tạo đơn hàng: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        ZaloPaySDK.getInstance().onResult(intent);
+    }
 }
