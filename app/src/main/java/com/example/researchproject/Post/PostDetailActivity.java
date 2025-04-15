@@ -2,6 +2,7 @@ package com.example.researchproject.Post;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,10 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import com.example.researchproject.Payment.Order.OrderInformationActivity;
-import com.example.researchproject.R;
 import com.example.researchproject.Review.Review;
+import com.example.researchproject.R;
 import com.example.researchproject.Review.ReviewAdapter;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
 
