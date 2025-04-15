@@ -171,7 +171,7 @@
                 android:layout_width="151dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/courier_prime_regular"
-                android:text="So luong" />
+                android:text="Số Lượng" />
 
             <TextView
                 android:id="@+id/txtQuantity_detail"

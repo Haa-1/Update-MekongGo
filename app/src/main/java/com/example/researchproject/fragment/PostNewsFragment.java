@@ -21,8 +21,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
+import com.example.researchproject.MainActivity;
 import com.example.researchproject.Payment.Api.CreateOrder;
 import com.example.researchproject.Post.PostAdActivity;
+import com.example.researchproject.Post.PostDetailActivity;
 import com.example.researchproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
@@ -234,6 +236,8 @@ public class PostNewsFragment extends Fragment {
                     .addOnSuccessListener(aVoid -> Log.d("FirebaseSave", "Đăng bài thành công!"))
                     .addOnFailureListener(e -> Log.e("FirebaseSave", "Lỗi khi đăng bài: " + e.getMessage()));
         }
+        Intent intent = new Intent(requireContext(), MainActivity.class);
+        startActivity(intent);
     }
 
     private void processZaloPayPayment() {

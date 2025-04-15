@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -156,7 +157,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
     static class PostViewHolder extends RecyclerView.ViewHolder {
         TextView txtTitle, txtPrice;
         ImageView imgService;
-        Button btnEditPost, btnDeletePost;
+        ImageButton btnEditPost, btnDeletePost;
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
             txtTitle = itemView.findViewById(R.id.txtTitle);

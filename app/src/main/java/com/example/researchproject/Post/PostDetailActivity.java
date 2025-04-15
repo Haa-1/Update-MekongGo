@@ -34,7 +34,7 @@ public class PostDetailActivity extends AppCompatActivity {
     private RecyclerView recyclerViewReviews;
     private ReviewAdapter reviewAdapter;
     private List<Review> reviewList;
-    private DatabaseReference  cartRef;
+    private DatabaseReference reviewsRef, cartRef;
     private String postId;
 
     @Override
@@ -58,6 +58,7 @@ public class PostDetailActivity extends AppCompatActivity {
         reviewAdapter = new ReviewAdapter(this, reviewList);
         recyclerViewReviews.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewReviews.setAdapter(reviewAdapter);
+
         // ✅ Get postId from Intent
         postId = getIntent().getStringExtra("postId");
         if (postId == null) {
@@ -65,6 +66,7 @@ public class PostDetailActivity extends AppCompatActivity {
             finish();
             return;
         }
+
         cartRef = FirebaseDatabase.getInstance().getReference("Cart");
         // 📌 Get Data from Intent
         String title = getIntent().getStringExtra("title");
@@ -125,6 +127,32 @@ public class PostDetailActivity extends AppCompatActivity {
             intent.putExtra("price", price);
 //            intent.putExtra("rentalTime", rentalTime);
             startActivity(intent);
+        });
+        // ✅ Load Reviews
+        loadReview();
+    }
+    private void loadReview() {
+        reviewsRef = FirebaseDatabase.getInstance().getReference("Reviews").child(postId);
+        reviewsRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                reviewList.clear();
+                Log.d("DEBUG", "Số lượng đánh giá: " + snapshot.getChildrenCount());
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Review review = dataSnapshot.getValue(Review.class);
+                    Log.d("DEBUG", "Rating: " + review.getRating() + ", Comment: " + review.getComment());
+
+                    if (review != null) {
+                        reviewList.add(review);
+                    }
+                }
+                reviewAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(PostDetailActivity.this, "Lỗi tải đánh giá!", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
