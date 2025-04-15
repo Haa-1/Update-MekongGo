@@ -149,6 +149,12 @@ public class MessageAiFragment extends Fragment {
             intent.putExtra("contact", selectedPost.getContact());
             intent.putExtra("imageUrl", selectedPost.getImageUrl());
             startActivity(intent);
+
+            Log.e("TAG", "Position: " + position);
+            Log.e("TAG", "Post ID: " + selectedPost.getPostId());
+            Log.e("TAG", "Title: " + selectedPost.getTitle());
+            Log.e("TAG", "Service Info: " + selectedPost.getServiceInfo());
+            Log.e("TAG", "Price: " + selectedPost.getPrice());
         });
 
         return view;
@@ -421,6 +427,8 @@ public class MessageAiFragment extends Fragment {
         gridView.setVisibility(View.VISIBLE);       // ✅ Hiển thị GridView
         // Nếu bạn cần cập nhật dữ liệu vào GridView
         postAdapter.notifyDataSetChanged();
+        Log.e("TAG", "Show Suggestions");
+        Log.e("TAG", "Size: " + filteredFirebaseData.size());
         // ✅ Cuộn xuống để hiển thị GridView hoàn toàn
         nestedScrollView.post(() -> nestedScrollView.fullScroll(View.FOCUS_DOWN));
     }

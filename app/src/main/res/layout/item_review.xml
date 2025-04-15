@@ -26,6 +26,4 @@
         android:id="@+id/img_review"
         android:layout_width="135dp"
         android:layout_height="131dp" />
-
-
 </LinearLayout>
